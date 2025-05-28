@@ -1,50 +1,119 @@
-# devops-qr-code
+# QR Code Generator - DevOps Deployment Project
 
-This is the sample application for the DevOps Capstone Project.
-It generates QR Codes for the provided URL, the front-end is in NextJS and the API is written in Python using FastAPI.
+![QR Code Generator Demo](assets/demo-screenshot.png)
 
-## Application
+A full-stack QR code generator application with Next.js frontend and FastAPI backend, demonstrating modern DevOps practices including containerization, CI/CD pipelines, and cloud deployment.
 
-**Front-End** - A web application where users can submit URLs.
+## Table of Contents
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Local Development](#local-development)
+  - [Docker Deployment](#docker-deployment)
+  - [Kubernetes Deployment](#kubernetes-deployment)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Infrastructure as Code](#infrastructure-as-code)
+- [Monitoring](#monitoring)
+- [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
-**API**: API that receives URLs and generates QR codes. The API stores the QR codes in cloud storage(AWS S3 Bucket).
+## Features
+- Generate QR codes for any URL
+- Responsive web interface (Next.js)
+- REST API backend (FastAPI)
+- Containerized with Docker
+- Automated CI/CD pipeline
+- Infrastructure as Code (Terraform)
+- Scalable Kubernetes deployment
+- Monitoring with Prometheus/Grafana
 
-## Running locally
+## Technology Stack
+**Frontend:**  
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-### API
+**Backend:**  
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-The API code exists in the `api` directory. You can run the API server locally:
+**DevOps:**  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
-- Clone this repo
-- Make sure you are in the `api` directory
-- Create a virtualenv by typing in the following command: `python -m venv .venv`
-- Install the required packages: `pip install -r requirements.txt`
-- Create a `.env` file, and add you AWS Access and Secret key, check  `.env.example`
-- Also, change the BUCKET_NAME to your S3 bucket name in `main.py`
-- Run the API server: `uvicorn main:app --reload`
-- Your API Server should be running on port `http://localhost:8000`
+## Prerequisites
+Before you begin, ensure you have installed:
+- Docker 20.10+
+- Docker Compose 2.0+
+- Node.js 16+
+- Python 3.9+
+- kubectl (for Kubernetes deployment)
+- Terraform (for cloud provisioning)
 
-### Front-end
+## Getting Started
 
-The front-end code exits in the `front-end-nextjs` directory. You can run the front-end server locally:
+### Local Development
+1. Clone the repository and Install Python dependencies and Start the FastAPI server with hot reload:
+   ```bash
+   git clone https://github.com/yourusername/devops-qr-code.git
+   cd devops-qr-code
+   cd api
+   python -m venv .venv
+   cp .env.example .env
+   pip install -r requirements.txt
 
-- Clone this repo
-- Make sure you are in the `front-end-nextjs` directory
-- Install the dependencies: `npm install`
-- Run the NextJS Server: `npm run dev`
-- Your Front-end Server should be running on `http://localhost:3000`
+2. Start the frontend
+    ```bash
+    cd ../front-end-nextjs
+    npm install
+    npm run dev
+
+3. The API and Frontend will be available at:
+    - Local URL: http://localhost:8000
+    - Interactive Docs (Swagger UI): http://localhost:8000/docs
+    - Alternative Docs (Redoc): http://localhost:8000/redoc
+    - Frontend: http://localhost:3000
+
+### Dockerization
+    Create a Dockerfile to dockerized both the frontend and the backend then Build & Run Containers
+    
+4. Backend
+    ```bash
+    cd api/
+    docker build -t wabsense/devops-qr-code-api .
+    docker run -d --name devops-qr-code-api -p 8000:8000 wabsense/devops-qr-code-api
+
+5. Frontend
+    ```bash
+    cd front-end-nextjs/
+    docker build -t wabsense/devops-qr-code-frontend .
+    docker run -d --name devops-qr-code-frontend -p 3000:3000 wabsense/devops-qr-code-frontend
+
+6. Push images to DockerHub
+    ```bash
+    docker push wabsense/devops-qr-code-api
+    docker push wabsense/devops-qr-code-frontend
+
+
+
+
+
+
 
 
 ## Goal
 
 The goal is to get hands-on with DevOps practices like Containerization, CICD and monitoring.
 
-Look at the capstone project for more detials.
-
 ## Author
 
-[Rishab Kumar](https://github.com/rishabkumar7)
+[Wahab Mustapha](https://github.com/wabsence)
 
 ## License
 
 [MIT](./LICENSE)
+    
