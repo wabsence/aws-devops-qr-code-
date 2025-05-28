@@ -1,10 +1,13 @@
 # .github/workflows/deploy.yml
 name: Build and Deploy
-on: [workflow_dispatch]
+on: 
+  [workflow_dispatch]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: chekcout
       - uses: actions/checkout@v4
       - name: Build Backend
         run: docker build -t wabsense/devops-qr-code-api:latest ./api
@@ -14,4 +17,4 @@ jobs:
         run: docker build -t wabsense/devops-qr-code-frontend:latest ./front-end-nextjs
       - name: Push Image to docker Hub
         run: docker push wabsense/devops-qr-code-frontend:latest
-      # Add steps to push to Docker Hub/AWS ECR
+      

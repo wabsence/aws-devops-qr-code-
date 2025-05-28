@@ -10,7 +10,7 @@ A full-stack QR code generator application with Next.js frontend and FastAPI bac
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Local Development](#local-development)
-  - [Docker Deployment](#docker-deployment)
+  - [Dockerization](#dockerization)
   - [Kubernetes Deployment](#kubernetes-deployment)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Infrastructure as Code](#infrastructure-as-code)
