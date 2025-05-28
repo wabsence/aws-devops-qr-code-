@@ -98,10 +98,22 @@ Before you begin, ensure you have installed:
     docker push wabsense/devops-qr-code-api
     docker push wabsense/devops-qr-code-frontend
 
+### 3. CI/CD (GitHub Actions)
+## Automate builds on every git push: check the build-deploy.yaml file
+8. Required Setup: Create a Docker Hub access token:
 
+- Go to Docker Hub → Account Settings → Security
+- Click "New Access Token"
+- Give it a name and select permissions
+- Copy the generated token and use it as your DOCKER_HUB_TOKEN secret
 
+9. Add these secrets to your GitHub repository:
 
+- Go to your GitHub repo → Settings → Secrets and variables → Actions
+- Add these repository secrets:
 
+- DOCKER_USERNAME: Your Docker Hub username
+- DOCKER_PASSWORD or DOCKER_HUB_TOKEN: Your Docker Hub password or access token
 
 
 
