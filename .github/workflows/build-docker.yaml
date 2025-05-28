@@ -23,11 +23,11 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: wabsense/devops-qr-code-backEnd:latest
+          tags: wabsense/devops-qr-code-backend:latest
       
       - name: Build and Push Frontend
         uses: docker/build-push-action@v5
         with:
           context: ./front-end-nextjs
           push: true
-          tags: wabsense/devops-qr-code-frontEnd:latest
+          tags: wabsense/devops-qr-code-frontend:latest
