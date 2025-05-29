@@ -34,7 +34,7 @@ async function handleQRGeneration(request) {
       try {
         console.log('Trying backend URL:', backendUrl); // Debug log
         
-        const response = await axios.get(backendUrl, {
+        const response = await axios.post(backendUrl, {}, {
           timeout: 10000, // 10 second timeout
           headers: {
             'Content-Type': 'application/json'
