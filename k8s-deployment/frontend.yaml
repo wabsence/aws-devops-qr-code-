@@ -15,6 +15,7 @@ spec:
       containers:
       - name: qr-frontend
         image: wabsense/devops-qr-code-frontend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
       imagePullSecrets:
