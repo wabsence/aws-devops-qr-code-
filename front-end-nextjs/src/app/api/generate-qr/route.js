@@ -21,7 +21,7 @@ async function handleQRGeneration(request) {
   }
 
   try {
-    // Try different backend endpoints
+    // Try different backend endpoints.
     const backendUrls = [
       `http://qr-api-service.default.svc.cluster.local/generate-qr?url=${encodeURIComponent(url)}`,
       `http://qr-api-service/generate-qr?url=${encodeURIComponent(url)}`,
