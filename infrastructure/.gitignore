@@ -1,0 +1,84 @@
+# =====================
+# Terraform-specific
+# =====================
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+*.tfplan
+*.backup
+*.bak
+*.log
+
+terraform.tfvars
+terraform.tfvars.json
+
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+.terraformrc
+terraform.rc
+
+# =====================
+# AWS Credentials / Configs
+# =====================
+.aws/
+credentials
+config
+
+# =====================
+# Kubernetes
+# =====================
+.kube/
+kubeconfig
+kubeconfig.yaml
+kubeconfig.yml
+*.kubeconfig
+
+# =====================
+# EKSCTL
+# =====================
+eksctl/
+*.eksctl.yaml
+*.eksctl.yml
+
+# =====================
+# Helm / Helmfile
+# =====================
+.helm/
+helmfile.yaml
+helmfile.d/
+*.tgz
+charts/
+releases.yaml
+values.yaml
+*.values.yaml
+*.values.yml
+
+# =====================
+# Secrets / Environment
+# =====================
+*.env
+.envrc
+*.pem
+*.key
+*.crt
+*.zip
+*.tar.gz
+
+# =====================
+# VSCode / JetBrains IDEs
+# =====================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =====================
+# Misc
+# =====================
+crash.log
+.DS_Store

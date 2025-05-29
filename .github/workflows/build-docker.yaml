@@ -2,9 +2,10 @@ name: Build and Deploy
 on: 
   workflow_dispatch:
   push:
-    paths:
-      - 'api/Dockerfile'              # Backend Dockerfile
-      - 'front-end-nextjs/Dockerfile' # Frontend Dockerfile
+    branches: [ main ]  # Also trigger on push to main branch
+    # paths:
+    #   - 'api/Dockerfile'              # Backend Dockerfile
+    #   - 'front-end-nextjs/Dockerfile' # Frontend Dockerfile
 
 jobs:
   build:
