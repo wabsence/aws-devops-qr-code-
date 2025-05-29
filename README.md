@@ -11,9 +11,9 @@ A full-stack QR code generator application with Next.js frontend and FastAPI bac
 - [Getting Started](#getting-started)
   - [Local Development](#local-development)
   - [Dockerization](#dockerization)
-  - [Kubernetes Deployment](#kubernetes-deployment)
-- [CI/CD Pipeline](#cicd-pipeline)
+- [CI/CD GitHub-Actions](#cicd-(github-actions))
 - [Infrastructure as Code](#infrastructure-as-code)
+- [Kubernetes Deployment](#kubernetes-deployment)
 - [Monitoring](#monitoring)
 - [Troubleshooting](#troubleshooting)
 - [Roadmap](#roadmap)
@@ -98,7 +98,7 @@ Before you begin, ensure you have installed:
     docker push wabsense/devops-qr-code-api
     docker push wabsense/devops-qr-code-frontend
 
-### 3. CI/CD (GitHub Actions)
+### 3. CI/CD (GitHub-Actions)
 ## Automate builds on every git push: check the build-deploy.yaml file
 8. Required Setup: Create a Docker Hub access token:
 
@@ -116,6 +116,29 @@ Before you begin, ensure you have installed:
 - DOCKER_PASSWORD or DOCKER_HUB_TOKEN: Your Docker Hub password or access token
 
 
+
+### Infrastructure as Code
+## Cloud infrastructure is provisioned using Terraform:
+10. Infrastructure 
+ - create all neccesary files and run
+    ```bash
+    terraform init
+    terraform plan
+    terraform apply
+    aws eks update-kubeconfig --region us-east-1 --name qrcode-k8s-cluster
+ - View [Infrastructure:](./infrastructure/)
+
+
+### Kubernetes Deployment
+## Deploy to eks-cluster using k8s: Yaml files
+10. Deployments
+ - create all neccesary files and run
+    ```bash
+    kubectl apply -f backend.yaml
+    kubectl apply -f frontend.yaml
+    chmod +x fix-s3-permissions.sh
+    ./fix-s3-permissions.sh
+ - View [Deployments:](./k8s-deployment/)
 
 ## Goal
 
